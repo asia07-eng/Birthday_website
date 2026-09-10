@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Chandni 🎀</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #ffdce9;
+    color: #6b3049;
+    overflow: hidden;
+}
+
+/* Main screens */
+.screen {
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* Dreamy background */
+.pink-bg {
+    background:
+        radial-gradient(circle at 20% 20%, #fff 0%, transparent 18%),
+        radial-gradient(circle at 80% 30%, #ffeef5 0%, transparent 20%),
+        linear-gradient(135deg, #ffd6e5, #f9b8d1, #ffe6ef);
+}
+
+/* Content */
+.content {
+    width: 100%;
+    max-width: 650px;
+    position: relative;
+    z-index: 5;
+}
+
+.small-title {
+    font-size: 15px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    color: #9a526e;
+}
+
+h1 {
+    font-size: clamp(42px, 10vw, 75px);
+    margin-bottom: 20px;
+    color: #7d3655;
+}
+
+h2 {
+    font-size: clamp(30px, 8vw, 55px);
+    margin-bottom: 20px;
+    color: #7d3655;
+}
+
+p {
+    font-size: 19px;
+    line-height: 1.7;
+}
+
+.line {
+    width: 100px;
+    height: 2px;
+    background: #b65c7e;
+    margin: 25px auto;
+}
+
+/* Buttons */
+button {
+    border: 1px solid #a84e70;
+    background: rgba(255,255,255,0.35);
+    color: #71334d;
+    padding: 14px 30px;
+    border-radius: 40px;
+    font-size: 17px;
+    font-family: Georgia, serif;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #fff;
+    transform: scale(1.05);
+}
+
+/* Floating hearts */
+.heart {
+    position: absolute;
+    font-size: 22px;
+    animation: float 6s infinite ease-in-out;
+    opacity: 0.65;
+}
+
+.heart:nth-child(1) {
+    left: 10%;
+    top: 20%;
+}
+
+.heart:nth-child(2) {
+    right: 12%;
+    top: 15%;
+    animation-delay: 1s;
+}
+
+.heart:nth-child(3) {
+    left: 18%;
+    bottom: 18%;
+    animation-delay: 2s;
+}
+
+.heart:nth-child(4) {
+    right: 18%;
+    bottom: 20%;
+    animation-delay: 3s;
+}
+
+@keyframes float {
+    0%,100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-25px) rotate(10deg);
+    }
+}
+
+/* Cake */
+.cake {
+    width: 190px;
+    height: 110px;
+    background: #ffb6cf;
+    border-radius: 12px 12px 25px 25px;
+    margin: 45px auto 20px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(130,50,80,0.15);
+}
+
+.cake::before {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 25px;
+    background: #fff0f6;
+    border-radius: 50%;
+    left: -15px;
+    top: -12px;
+}
+
+.cake::after {
+    content: "♡  ♡  ♡";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 25px;
+    color: #b84f77;
+    font-size: 20px;
+}
+
+.candle {
+    width: 12px;
+    height: 45px;
+    background: #fff;
+    position: absolute;
+    top: -55px;
+    border-radius: 5px;
+}
+
+.candle:nth-child(1) {
+    left: 50px;
+}
+
+.candle:nth-child(2) {
+    left: 89px;
+}
+
+.candle:nth-child(3) {
+    right: 50px;
+}
+
+.flame {
+    width: 14px;
+    height: 20px;
+    background: #ff9c58;
+    border-radius: 50% 50% 50% 50%;
+    position: absolute;
+    top: -20px;
+    left: -1px;
+    animation: flame 0.7s infinite alternate;
+}
+
+@keyframes flame {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
+    }
+}
+
+/* Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.photo {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 4px solid rgba(255,255,255,0.8);
+    box-shadow: 0 8px 20px rgba(100,30,60,0.12);
+}
+
+/* Envelope */
+.envelope {
+    width: 220px;
+    height: 150px;
+    background: #fff;
+    margin: 30px auto;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(100,30,60,0.15);
+}
+
+.envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 110px solid transparent;
+    border-right: 110px solid transparent;
+    border-top: 75px solid #f7c3d6;
+}
+
+/* Letter */
+.letter {
+    background: rgba(255,255,255,0.75);
+    border-radius: 25px;
+    padding: 30px 25px;
+    max-height: 75vh;
+    overflow-y: auto;
+    box-shadow: 0 15px 35px rgba(100,30,60,0.12);
+}
+
+.letter p {
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.signature {
+    margin-top: 25px;
+    font-size: 20px;
+    font-style: italic;
+}
+
+/* Confetti */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    top: -20px;
+    z-index: 100;
+    animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+    }
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+
+    h1 {
+        font-size: 45px;
+    }
+
+    h2 {
+        font-size: 34px;
+    }
+
+    p {
+        font-size: 17px;
+    }
+
+    .gallery {
+        gap: 10px;
+    }
+
+    .photo {
+        height: 130px;
+    }
+
+    .letter {
+        padding: 22px 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- SCREEN 1 -->
+<section class="screen active pink-bg" id="screen1">
+
+    <div class="heart">💗</div>
+    <div class="heart">🎀</div>
+    <div class="heart">💕</div>
+    <div class="heart">🌸</div>
+
+    <div class="content">
+
+        <div class="small-title">A little surprise</div>
+
+        <h1>Hey My Favorite Girl… 🎀</h1>
+
+        <div class="line"></div>
+
+        <p>
+            I made something special<br>
+            just for you.
+        </p>
+
+        <button onclick="nextScreen(2)">
+            Start the Surprise ✨
+        </button>
+
+    </div>
+</section>
+
+
+<!-- SCREEN 2 -->
+<section class="screen pink-bg" id="screen2">
+
+    <div class="heart">💗</div>
+    <div class="heart">✨</div>
+    <div class="heart">🎀</div>
+
+    <div class="content">
+
+        <div class="small-title">Today is your day</div>
+
+        <h1>Happy Birthday<br>Chandni! 🎂💗</h1>
+
+        <div class="line"></div>
+
+        <p>
+            Another beautiful year of your life<br>
+            deserves a beautiful little celebration. 🌸
+        </p>
+
+        <button onclick="nextScreen(3)">
+            There's a cake waiting 🎂
+        </button>
+
+    </div>
+</section>
+
+
+<!-- SCREEN 3 -->
+<section class="screen pink-bg" id="screen3">
+
+    <div class="content">
+
+        <div class="small-title">Make a wish</div>
+
+        <h2>Your Birthday Cake 🎂</h2>
+
+        <div class="cake">
+
+            <div class="candle" id="candle1">
+                <div class="flame"></div>
+            </div>
+
+            <div class="candle" id="candle2">
+                <div class="flame"></div>
+            </div>
+
+            <div class="candle" id="candle3">
+                <div class="flame"></div>
+            </div>
+
+        </div>
+
+        <p>
+            Close your eyes…<br>
+            Make a beautiful wish. 💗
+        </p>
+
+        <button onclick="blowCandles()">
+            Blow the Candles 🕯️
+        </button>
+
+    </div>
+</section>
+
+
+<!-- SCREEN 4 -->
+<section class="screen pink-bg" id="screen4">
+
+    <div class="content">
+
+        <div class="small-title">Our little memories</div>
+
+        <h2>Beautiful Moments 📸</h2>
+
+        <p>
+            Some memories deserve<br>
+            a special little place. 💕
+        </p>
+
+        <div class="gallery">
+
+            <img src="photo1.jpg"
+                 class="photo"
+                 alt="Your Photo 1">
+
+            <img src="photo2.jpg"
+                 class="photo"
+                 alt="Your Photo 2">
+
+            <img src="photo3.jpg"
+                 class="photo"
+                 alt="Your Photo 3">
+
+            <img src="photo4.jpg"
+                 class="photo"
+                 alt="Your Photo 4">
+
+            <img src="photo5.jpg"
+                 class="photo"
+                 alt="Your Photo 5">
+
+            <img src="photo6.jpg"
+                 class="photo"
+                 alt="Your Photo 6">
+
+        </div>
+
+        <button onclick="nextScreen(5)">
+            One last thing… 💌
+        </button>
+
+    </div>
+</section>
+
+
+<!-- SCREEN 5 -->
+<section class="screen pink-bg" id="screen5">
+
+    <div class="content">
+
+        <div class="small-title">Something from my heart</div>
+
+        <h2>A Little Letter 💌</h2>
+
+        <div class="envelope"></div>
+
+        <p>
+            There's something I wanted<br>
+            to tell you today…
+        </p>
+
+        <button onclick="nextScreen(6)">
+            Open it 💗
+        </button>
+
+    </div>
+</section>
+
+
+<!-- SCREEN 6 -->
+<section class="screen pink-bg" id="screen6">
+
+    <div class="content">
+
+        <div class="letter">
+
+            <div class="small-title">
+                For Chandni
+            </div>
+
+            <h2>Happy Birthday, Girl! 💗</h2>
+
+            <div class="line"></div>
+
+            <p>
+                I don't think a simple "Happy Birthday"
+                is enough for someone as special as you.
+            </p>
+
+            <p>
+                I'm genuinely grateful for all the
+                little moments, laughs, conversations,
+                and memories we've shared.
+            </p>
+
+            <p>
+                You are one of those people who can
+                make ordinary moments feel special
+                without even trying.
+            </p>
+
+            <p>
+                I hope this new year of your life brings
+                you happiness that stays, people who
+                truly value you, and countless reasons
+                to smile.
+            </p>
+
+            <p>
+                May every little wish in your heart
+                find its way to you. 🌸
+            </p>
+
+            <p>
+                And please never forget how loved,
+                appreciated and special you are.
+            </p>
+
+            <p class="signature">
+                Happy Birthday once again, Chandni. 🎀<br>
+                Stay exactly the way you are. 💕
+            </p>
+
+        </div>
+
+        <button onclick="nextScreen(7)">
+            Wait… There's More 👀
+        </button>
+
+    </div>
+</section>
+
+
+<!-- SCREEN 7 -->
+<section class="screen pink-bg" id="screen7">
+
+    <div class="heart">💗</div>
+    <div class="heart">💕</div>
+    <div class="heart">🎀</div>
+    <div class="heart">✨</div>
+
+    <div class="content">
+
+        <div class="small-title">You thought that was it?</div>
+
+        <h1>Wait… 👀</h1>
+
+        <div class="line"></div>
+
+        <p>
+            Of course I wasn't going to end<br>
+            your birthday surprise there. 😂💗
+        </p>
+
+        <button onclick="nextScreen(8)">
+            Final Surprise ✨
+        </button>
+
+    </div>
+</section>
+
+
+<!-- SCREEN 8 -->
+<section class="screen pink-bg" id="screen8">
+
+    <div class="heart">💗</div>
+    <div class="heart">🎀</div>
+    <div class="heart">🌸</div>
+    <div class="heart">✨</div>
+
+    <div class="content">
+
+        <div class="small-title">
+            One last message
+        </div>
+
+        <h1>
+            Keep Smiling,<br>
+            Birthday Girl! 🎂💗
+        </h1>
+
+        <div class="line"></div>
+
+        <p>
+            May your life always be filled with
+            love, laughter, happiness and beautiful
+            surprises.
+        </p>
+
+        <p style="margin-top:20px;">
+            Here's to another year of
+            <b>you being you. 🎀</b>
+        </p>
+
+        <p style="margin-top:25px; font-size:24px;">
+            Happy Birthday Chandni! 💕🎂✨
+        </p>
+
+    </div>
+</section>
+
+
+<script>
+
+/* Change screen */
+function nextScreen(number) {
+
+    document.querySelectorAll(".screen").forEach(function(screen) {
+        screen.classList.remove("active");
+    });
+
+    document.getElementById("screen" + number)
+        .classList.add("active");
+}
+
+
+/* Blow candles */
+function blowCandles() {
+
+    document.querySelectorAll(".flame").forEach(function(flame) {
+        flame.style.display = "none";
+    });
+
+    createConfetti();
+
+    setTimeout(function() {
+        nextScreen(4);
+    }, 1800);
+}
+
+
+/* Confetti */
+function createConfetti() {
+
+    for (let i = 0; i < 80; i++) {
+
+        let confetti = document.createElement("div");
+
+        confetti.className = "confetti";
+
+        confetti.innerHTML =
+            ["💗","💕","✨","🎀","🌸"][Math.floor(Math.random() * 5)];
+
+        confetti.style.left =
+            Math.random() * 100 + "vw";
+
+        confetti.style.animationDuration =
+            (2 + Math.random() * 2) + "s";
+
+        confetti.style.fontSize =
+            (10 + Math.random() * 15) + "px";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(function() {
+            confetti.remove();
+        }, 4000);
+    }
+}
+
+</script>
+
+</body>
+</html>
