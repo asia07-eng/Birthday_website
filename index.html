@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy Birthday Chandni 🎀</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            background: linear-gradient(135deg, #ffd6e7, #f8c8dc, #e8c7ff);
+            min-height: 100vh;
+            overflow: hidden;
+            color: #6b3150;
+        }
+
+        .screen {
+            display: none;
+            position: absolute;
+            inset: 0;
+            padding: 25px;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            animation: fade 1s ease;
+        }
+
+        .active {
+            display: flex;
+        }
+
+        .box {
+            width: 100%;
+            max-width: 550px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 35px 25px;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.72);
+            box-shadow: 0 15px 45px rgba(120,50,90,0.18);
+        }
+
+        h1 {
+            font-size: 34px;
+            color: #c44578;
+        }
+
+        h2 {
+            color: #c44578;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        button {
+            border: none;
+            background: #d95f91;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+
+        .heart {
+            font-size: 45px;
+            animation: pulse 1.5s infinite;
+        }
+
+        .photo {
+            width: 100%;
+            max-width: 330px;
+            max-height: 420px;
+            object-fit: cover;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+            margin: 15px 0;
+        }
+
+        .letter {
+            text-align: left;
+        }
+
+        .cake {
+            font-size: 90px;
+            margin: 20px;
+        }
+
+        .envelope {
+            font-size: 90px;
+            margin: 20px;
+        }
+
+        .small {
+            font-size: 14px;
+            opacity: .7;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        .floating {
+            position: fixed;
+            font-size: 25px;
+            animation: float 7s linear infinite;
+            opacity: .6;
+        }
+
+        .f1 { left: 10%; animation-delay: 0s; }
+        .f2 { left: 35%; animation-delay: 2s; }
+        .f3 { left: 65%; animation-delay: 1s; }
+        .f4 { left: 85%; animation-delay: 3s; }
+
+        @keyframes float {
+            from {
+                bottom: -50px;
+            }
+            to {
+                bottom: 110%;
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="floating f1">💗</div>
+<div class="floating f2">💕</div>
+<div class="floating f3">💖</div>
+<div class="floating f4">🎀</div>
+
+
+<!-- SCREEN 1 -->
+<section class="screen active" id="s1">
+    <div class="box">
+
+        <div class="heart">🎀</div>
+
+        <h1>Hey My Favorite Girl...</h1>
+
+        <p>
+            I made something special<br>
+            just for you. 💗
+        </p>
+
+        <button onclick="next(2)">
+            Start the Surprise ✨
+        </button>
+
+    </div>
+</section>
+
+
+<!-- SCREEN 2 -->
+<section class="screen" id="s2">
+    <div class="box">
+
+        <h1>Happy Birthday Chandni! 🎂💗</h1>
+
+        <p>
+            Today is all about celebrating
+            the beautiful person you are.
+        </p>
+
+        <button onclick="next(3)">
+            There's a little surprise 🎁
+        </button>
+
+    </div>
+</section>
+
+
+<!-- SCREEN 3 -->
+<section class="screen" id="s3">
+    <div class="box">
+
+        <h2>Make a Wish ✨</h2>
+
+        <div class="cake">🎂</div>
+
+        <p>
+            Close your eyes...<br>
+            Make your birthday wish. 💗
+        </p>
+
+        <button onclick="next(4)">
+            Wish Made! 🌸
+        </button>
+
+    </div>
+</section>
+
+
+<!-- SCREEN 4 PHOTO -->
+<section class="screen" id="s4">
+    <div class="box">
+
+        <h2>A Little Memory 📸</h2>
+
+        <img
+            src="Photo1.jpg.JPG"
+            class="photo"
+            alt="Chandni's Photo"
+        >
+
+        <p>
+            One picture,<br>
+            but so many memories. 💕
+        </p>
+
+        <button onclick="next(5)">
+            There's More 💗
+        </button>
+
+    </div>
+</section>
+
+
+<!-- SCREEN 5 -->
+<section class="screen" id="s5">
+    <div class="box">
+
+        <div class="envelope">💌</div>
+
+        <h2>A Letter For You</h2>
+
+        <p>
+            I wrote something that
+            I really wanted you to read.
+        </p>
+
+        <button onclick="next(6)">
+            Open the Letter 💌
+        </button>
+
+    </div>
+</section>
+
+
+<!-- SCREEN 6 LETTER -->
+<section class="screen" id="s6">
+    <div class="box letter">
+
+        <h2>Dear Chandni, 💗</h2>
+
+        <p>
+            Happy Birthday to someone who deserves
+            all the happiness, love and beautiful
+            moments in the world.
+        </p>
+
+        <p>
+            I hope this new year of your life brings
+            you countless reasons to smile,
+            beautiful memories and people who
+            always make you feel special.
+        </p>
+
+        <p>
+            Never forget how precious you are
+            and never stop being the person you are.
+        </p>
+
+        <p>
+            I'm genuinely grateful for every memory,
+            every laugh and every little moment.
+        </p>
+
+        <p>
+            May Allah bless you with happiness,
+            success, peace and everything your heart
+            wishes for. 🤍
+        </p>
+
+        <p>
+            Happy Birthday once again, Chandni. 🎀
+        </p>
+
+        <p>
+            With lots of love,<br>
+            <strong>Someone who cares about you 💗</strong>
+        </p>
+
+        <button onclick="next(7)">
+            Wait... 👀
+        </button>
+
+    </div>
+</section>
+
+
+<!-- SCREEN 7 -->
+<section class="screen" id="s7">
+    <div class="box">
+
+        <h1>Wait... There's More 👀</h1>
+
+        <p>
+            You really thought that was the end?
+        </p>
+
+        <div class="heart">🎁</div>
+
+        <button onclick="next(8)">
+            One Last Surprise ✨
+        </button>
+
+    </div>
+</section>
+
+
+<!-- SCREEN 8 -->
+<section class="screen" id="s8">
+    <div class="box">
+
+        <div class="heart">🌸</div>
+
+        <h1>For You, Chandni 🤍</h1>
+
+        <p>
+            May your smile always stay this beautiful.
+        </p>
+
+        <p>
+            May your dreams come true.
+        </p>
+
+        <p>
+            And may this year become
+            one of your most beautiful chapters. ✨
+        </p>
+
+        <h2>Happy Birthday! 🎂🎀</h2>
+
+        <p class="small">
+            Made with love 💗
+        </p>
+
+    </div>
+</section>
+
+
+<script>
+
+function next(number) {
+
+    document.querySelectorAll(".screen").forEach(function(screen) {
+        screen.classList.remove("active");
+    });
+
+    document.getElementById("s" + number).classList.add("active");
+}
+
+</script>
+
+</body>
+</html>
